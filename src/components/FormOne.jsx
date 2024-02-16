@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
+import FormTwo from "./formTwo";
 const FormOne = () => {
 //  const navigate=useNavigate()
   const form = useForm();
   const { register, control, handleSubmit, formState, getValues } = form;
-  const { errors } = formState;
+  const { errors,isDirty,isValid } = formState;
+const [flag,setFlag]=useState(false)
+  console.log(isDirty,isValid)
   function onSubmit(data) {
     console.log("submitted", data);
-  }
-  function handleNext() {
-    // console.log("form data", getValues());
+    setFlag(false)
+
   }
 
+
   return (
-    
+    <>
+      {" "}
       <div className="flex flex-col gap-6 justify-center items-center h-screen bg-slate-200">
-        <form
+        {flag?<form
           noValidate
           onSubmit={handleSubmit(onSubmit)}
           action=""
@@ -122,18 +126,18 @@ const FormOne = () => {
             </div>
           </div>
           <button
-            
-            // onClick={handleNext}
+            onClick={handleSubmit}
             className="bg-green-300 p-2 rounded-md w-[450px] hover:opacity-80"
           >
             Next
           </button>
-        </form>
+        </form>:<FormTwo></FormTwo>}
+        
 
         <DevTool control={control}></DevTool>
       </div>
- 
-  );
+    </>
+  )
 };
 
 export default FormOne;
