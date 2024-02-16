@@ -1,11 +1,12 @@
 import './App.css'
+import FormOne from './components/FormOne'
 
 function App() {
 
 
   return (
     <>
-    App
+    <FormOne></FormOne>
     </>
   )
 }
