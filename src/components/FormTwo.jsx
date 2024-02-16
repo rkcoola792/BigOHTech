@@ -1,22 +1,17 @@
 import React, { useState,useRef } from 'react'
-import { v4 as uuidv4 } from "uuid";
 
 const FormTwo = () => {
     const [familyMembers,setFamilyMembers]=useState([])
     const name=useRef()
     const relation=useRef()
-    let id=0;
-    console.log("id current",id)
+    var id=0;
 
     function handleDelete(recivedId){
         console.log("recived id",recivedId)
 
-    for(let i=0;i<familyMembers.length;i++){
-        if(familyMembers[i]?.id==recivedId){
-            setFamilyMembers(familyMembers.splice(i,1))
-          
-        }
-    }
+        let newList=familyMembers.filter(ele=>ele.id!=recivedId)
+        setFamilyMembers(newList)
+        console.log(newList)
         
     }
 
@@ -69,11 +64,16 @@ const FormTwo = () => {
               {ele?.id}. {ele?.userName}
             </p>
             <p className=""> {ele?.userRelation}</p>
-            <p className="cursor-pointer" onClick={()=>handleDelete(ele?.id)}> delete</p>
+            <p className="cursor-pointer" onClick={() => handleDelete(ele?.id)}>
+              {" "}
+               ❌ 
+            </p>
           </div>
           <hr className="bg-gray-800 " />
         </div>
       ))}
+
+      {familyMembers.length!=0 && <button className=" bg-green-300 p-2 rounded-md w-full  hover:opacity-80 mt-6">Submit </button>}
     </div>
   );
 }

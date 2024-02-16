@@ -7,8 +7,8 @@ const FormOne = () => {
   const form = useForm();
   const { register, control, handleSubmit, formState, getValues } = form;
   const { errors,isDirty,isValid } = formState;
-const [flag,setFlag]=useState(false)
-  console.log(isDirty,isValid)
+const [flag,setFlag]=useState(true)
+//   console.log(isDirty,isValid)
   function onSubmit(data) {
     console.log("submitted", data);
     setFlag(false)
