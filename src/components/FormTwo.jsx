@@ -1,11 +1,13 @@
 import React, { useState,useRef } from 'react'
 
-const FormTwo = () => {
+const FormTwo = (props) => {
     const [familyMembers,setFamilyMembers]=useState([])
     const name=useRef()
     const relation=useRef()
     var id=0;
 
+    console.log("data 1" ,props)
+    console.log("data 2",familyMembers)
     function handleDelete(recivedId){
         console.log("recived id",recivedId)
 

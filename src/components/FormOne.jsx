@@ -4,6 +4,7 @@ import { DevTool } from "@hookform/devtools";
 import FormTwo from "./formTwo";
 const FormOne = () => {
 //  const navigate=useNavigate()
+const [formData,setFormData]=useState()
   const form = useForm();
   const { register, control, handleSubmit, formState, getValues } = form;
   const { errors,isDirty,isValid } = formState;
@@ -11,6 +12,7 @@ const [flag,setFlag]=useState(true)
 //   console.log(isDirty,isValid)
   function onSubmit(data) {
     console.log("submitted", data);
+    setFormData(data)
     setFlag(false)
 
   }
@@ -131,7 +133,7 @@ const [flag,setFlag]=useState(true)
           >
             Next
           </button>
-        </form>:<FormTwo></FormTwo>}
+        </form>:<FormTwo formData={formData}></FormTwo>}
         
 
         <DevTool control={control}></DevTool>
