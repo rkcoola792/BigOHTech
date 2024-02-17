@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import FormTwo from "./formTwo";
+import FormTwo from "./FormTwo";
 const FormOne = () => {
 //  const navigate=useNavigate()
 const [formData,setFormData]=useState()
