@@ -1,8 +1,11 @@
-import React, { useState,useRef } from 'react'
+import React, { useState,useRef, useContext } from 'react'
 import ResultPage from './ResultPage'
 import { useForm } from "react-hook-form";
+import { PreviousContext } from '../App';
 
 const FormTwo = (props) => {
+
+
     const [familyMembers,setFamilyMembers]=useState([])
     const name=useRef()
     const relation=useRef()

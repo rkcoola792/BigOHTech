@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import {PreviousContext} from "../App"
 
 const ResultPage = (props) => {
+  const { previousValue,previousFunction } = useContext(PreviousContext);
+  console.log("previous value",previousValue)
+  previousFunction(true)
   console.log("Result page",props)
     return (
       <div>

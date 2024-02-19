@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import FormTwo from "./FormTwo";
+import { PreviousContext } from "../App";
 const FormOne = () => {
+      const { previousValue, previousFunction } = useContext(PreviousContext);
 //  const navigate=useNavigate()
 const [formData,setFormData]=useState()
   const form = useForm();
@@ -133,10 +135,13 @@ const [flag,setFlag]=useState(true)
           >
             Next
           </button>
-        </form>:<FormTwo formData={formData}></FormTwo>}
+        </form>:<>
+        <FormTwo formData={formData}></FormTwo>
+        {!previousValue&&<button className="bg-teal-200 p-2 px-4 rounded-md" onClick={()=>setFlag(true)}>Previous</button>}
+        </>}
         
 
-        <DevTool control={control}></DevTool>
+        {/* <DevTool control={control}></DevTool> */}
       </div>
     </>
   )
