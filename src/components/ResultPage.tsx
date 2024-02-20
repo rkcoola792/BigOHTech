@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
 import {PreviousContext} from "../App"
 
-const ResultPage = (props) => {
+const ResultPage = (props:any) => {
   const { previousValue,previousFunction } = useContext(PreviousContext);
-  console.log("previous value",previousValue)
   previousFunction(true)
-  console.log("Result page",props)
     return (
-      <div>
+      <div >
         <h1 className="text-3xl mb-1 ">Succesfully added all the details !</h1>
         <div className="flex flex-col gap-2">
           <p>First name : {props?.formOneData?.formData?.firstName}</p>
@@ -18,10 +16,10 @@ const ResultPage = (props) => {
           <p>Address : {props?.formOneData?.formData?.Address}</p>
         </div>
         <hr />
-        <h1 className="text-2xl mt-6 mb-1 ">Family members</h1>
+        <h1 className="text-2xl mt-6 mb-1 ">Family members :</h1>
         <div className="flex flex-col gap-2">
-          {props?.formTwoData?.map((ele, index) => (
-            <div>
+          {props?.formTwoData?.map((ele:any, index:number) => (
+            <div key={index}>
               <div className="flex gap-4 justify-evenly">
                 <p>{++index}.</p>
                 <p>Name : {ele?.userName} :</p>

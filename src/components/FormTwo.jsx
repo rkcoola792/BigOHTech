@@ -6,8 +6,7 @@ import { DevTool } from '@hookform/devtools';
 
 const FormTwo = (props) => {
   const {formTwoData,setFormTwoData}=useContext(PreviousContext)
-    const [familyMembers,setFamilyMembers]=useState([])
-    const [dataFlag,setDataFlag]=useState(false)
+    
     const name=useRef()
     const relation=useRef()
     const phone=useRef()
@@ -17,8 +16,6 @@ const FormTwo = (props) => {
     const { register,control,handleSubmit,formState,getValues} = form;
     const{errors,isDirty,isValid}=formState
     const [flag,setFlag]=useState(true)
-
-    
     function handleDelete(recivedId){
 
         let newList=formTwoData.filter(ele=>ele.id!=recivedId)
@@ -33,13 +30,10 @@ const FormTwo = (props) => {
    
 
     function onSubmit(data){
-      // console.log("form submitted",data)
     }
 
     function handleGetValues(){
       let formData=getValues();
-      console.log("is valid" ,isValid)
-      console.log("getting values fro form 2",formData)
           let obj = {
             userName: formData?.name,
             userRelation: formData?.relation,
@@ -173,7 +167,7 @@ const FormTwo = (props) => {
               Submit{" "}
             </button>
           )}
-          <DevTool control={control}></DevTool>
+          {/* <DevTool control={control}></DevTool> */}
         </div>
       ) : (
         <ResultPage
