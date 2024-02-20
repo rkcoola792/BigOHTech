@@ -6,9 +6,10 @@ export const PreviousContext = createContext();
 function App() {
 
 const [previous, setPrevious] = useState(false);
+const [formTwoData, setFormTwoData] = useState([]);
   return (
     <>
-      <PreviousContext.Provider value={{ previousValue: previous,previousFunction:setPrevious }}>
+      <PreviousContext.Provider value={{ previousValue: previous,previousFunction:setPrevious,formTwoData:formTwoData,setFormTwoData:setFormTwoData }}>
         <FormOne></FormOne>
       </PreviousContext.Provider>
     </>

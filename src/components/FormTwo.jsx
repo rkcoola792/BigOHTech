@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import { PreviousContext } from '../App';
 
 const FormTwo = (props) => {
-
-
+  const {formTwoData,setFormTwoData}=useContext(PreviousContext)
     const [familyMembers,setFamilyMembers]=useState([])
     const name=useRef()
     const relation=useRef()
@@ -19,8 +18,8 @@ const FormTwo = (props) => {
     function handleDelete(recivedId){
         console.log("recived id",recivedId)
 
-        let newList=familyMembers.filter(ele=>ele.id!=recivedId)
-        setFamilyMembers(newList)
+        let newList=formTwoData.filter(ele=>ele.id!=recivedId)
+        setFormTwoData(newList)
         console.log(newList)
         
     }
@@ -36,9 +35,12 @@ const FormTwo = (props) => {
     }
 
         setFamilyMembers(prev=>prev.concat(obj))
+        setFormTwoData(prev=>prev.concat(obj))
     }
 
     console.log("asdsadas",familyMembers)
+    console.log("From two data",formTwoData)
+
   return (
     <>
       {flag ? (
@@ -73,7 +75,7 @@ const FormTwo = (props) => {
               Add
             </button>
           </div>
-          {familyMembers.map((ele, index) => (
+          {formTwoData.map((ele, index) => (
             <div key={id++} className="">
               <div className="flex justify-between my-4">
                 <p className="">
@@ -92,7 +94,7 @@ const FormTwo = (props) => {
             </div>
           ))}
 
-          {familyMembers.length != 0 && (
+          {formTwoData.length != 0 && (
             <button className=" bg-green-300 p-2 rounded-md w-full  hover:opacity-80 mt-6" onClick={handleSubmit}>
               Submit{" "}
             </button>
