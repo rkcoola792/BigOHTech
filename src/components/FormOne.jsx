@@ -10,7 +10,7 @@ const FormOne = () => {
   const { errors, isDirty, isValid } = formState;
   const [flag, setFlag] = useState(false);
   function onSubmit(data) {
-    console.log("submitted", data);
+    // console.log("submitted", data);
     setFormData(data);
     setFlag(false);
   }
