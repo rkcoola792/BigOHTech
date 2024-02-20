@@ -13,7 +13,7 @@ const FormTwo = (props) => {
     const email=useRef()
     var id=0;
     const form = useForm();
-    const { register,control,handleSubmit,formState,getValues} = form;
+    const { register,control,handleSubmit,formState,getValues,reset} = form;
     const{errors,isDirty,isValid}=formState
     const [flag,setFlag]=useState(true)
     function handleDelete(recivedId){
@@ -41,8 +41,10 @@ const FormTwo = (props) => {
             userEmail: formData?.email,
             id: id++,
           };
-          if(isValid)
+          if(isValid){
           setFormTwoData((prev) => prev.concat(obj));
+        reset()
+          }
     }
   return (
     <>
