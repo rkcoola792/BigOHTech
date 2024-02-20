@@ -178,7 +178,7 @@ const FormTwo = (props) => {
       ) : (
         <ResultPage
           formOneData={props}
-          formTwoData={familyMembers}
+          formTwoData={formTwoData}
         ></ResultPage>
       )}
     </>

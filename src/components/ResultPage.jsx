@@ -20,10 +20,16 @@ const ResultPage = (props) => {
         <hr />
         <h1 className="text-2xl mt-6 mb-1 ">Family members</h1>
         <div className="flex flex-col gap-2">
-          {props?.formTwoData?.map((ele) => (
-            <div className="flex gap-4">
-              <p>{ele?.userName} :</p>
-              <p>{ele?.userRelation}</p>
+          {props?.formTwoData?.map((ele, index) => (
+            <div>
+              <div className="flex gap-4 justify-evenly">
+                <p>{++index}.</p>
+                <p>Name : {ele?.userName} :</p>
+                <p>Relation : {ele?.userRelation}</p>
+                <p>Contact : {ele?.userPhone}</p>
+                <p>Email : {ele?.userEmail}</p>
+              </div>
+                <hr className="bg-white p-[1px] mt-1" />
             </div>
           ))}
         </div>
